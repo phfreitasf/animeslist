@@ -1,0 +1,9 @@
+.pointer {
+    cursor:pointer;
+    transition: 0.3s;
+}
+
+.pointer:hover {
+    filter: invert();
+    /* color: white; */
+}

@@ -1,5 +1,4 @@
 import { Component, EventEmitter, OnInit, Output, ViewChild, ViewChildren } from '@angular/core';
-import { AnimeListComponent } from '../anime-list/anime-list.component';
 
 @Component({
   selector: 'app-anime-filter',
