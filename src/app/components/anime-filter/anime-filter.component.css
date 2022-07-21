@@ -1,8 +1,8 @@
 /* From uiverse.io by @ercnersoy */
 .input {
-  min-width: 800px;
+  
   border: none;
-  padding: 1rem;
+  padding: 1rem; 
   border-radius: 2rem;
   background: #e8e8e8;
   transition: 0.3s;
