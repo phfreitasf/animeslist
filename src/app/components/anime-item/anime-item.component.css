@@ -1,0 +1,36 @@
+:root {
+  --gradient: linear-gradient(to left top, #DD2476 10%, #FF512F 90%) !important;
+}
+
+body {
+  background: #111 !important;
+}
+
+.card {
+  background: #222;
+  /* border: 1px solid #ffffff; */
+  box-shadow: 0px 10px 20px #812c52;
+  color: rgba(250, 250, 250, 0.8);
+  margin-bottom: 2rem;
+}
+
+.btn {
+    border: 1px solid #dd2476;
+  border-image-slice: 1;
+  /* background: var(--gradient) !important; */
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: white !important;
+  /* border-color: var(--gradient) !important; */
+  text-decoration: none;
+  transition: all .4s ease;
+
+}
+
+.btn:hover,
+.btn:focus {
+  background: var(--gradient) !important;
+  -webkit-background-clip: none !important;
+  -webkit-text-fill-color: #fff !important;
+  box-shadow: #222 1px 0 10px;
+  text-decoration: underline;
+}

@@ -1,0 +1,15 @@
+/* From uiverse.io by @ercnersoy */
+.input {
+  min-width: 800px;
+  border: none;
+  padding: 1rem;
+  border-radius: 2rem;
+  background: #e8e8e8;
+  transition: 0.3s;
+}
+
+.input:focus {
+  outline-color: #b57272;
+  background: #e8e8e8;
+  transition: 0.3s;
+}
