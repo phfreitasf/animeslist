@@ -11,14 +11,17 @@
       <span class="text-muted fs-6 col-3 pe-4">Status: <p>{{singleAnime.status}}</p></span>
       <span class="text-muted fs-6 col-3 pe-4">Episódios: <p>{{singleAnime.episodes}}</p></span>
       <span class="text-muted fs-6 col-3 pe-4">Ano: <p>{{singleAnime.year}}</p></span>
-      <span class="text-muted fs-6 col-3 pe-4">Estúdio: <p *ngFor="let studio of singleAnime.studios">{{studio.name}}</p></span>
-      
+      <span class="text-muted fs-6 col-3 pe-4">Estúdio: <p *ngFor="let studio of singleAnime.studios">{{studio.name}}
+        </p></span>
+
     </section>
-    <span class="text-muted fs-6">Synopsis:</span><p class="text-white">{{singleAnime.synopsis}}</p>
-    
+    <span class="text-muted fs-6">Synopsis:</span>
+    <p class="text-white">{{singleAnime.synopsis}}</p>
+
   </div>
 
 </div>
 <nav class="row d-md-flex">
-  <button class="btn btn-primary col-md-2 m-auto mb-4"><a [href]="singleAnime.trailer.url" class="text-decoration-none text-white">Assistir Trailer</a></button>
+  <a [href]="singleAnime.trailer.url" class="text-decoration-none text-white col-md-2 m-auto mb-4"><button
+      class="btn btn-primary ">Assistir Trailer</button></a>
 </nav>
