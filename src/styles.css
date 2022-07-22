@@ -2,6 +2,12 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 @import '~font-awesome/css/font-awesome.min.css';
 
+
+* {
+    font-family: monospace, monospace;
+    color: white;
+}
 body {
     background-color: #1f232e;
 }
+

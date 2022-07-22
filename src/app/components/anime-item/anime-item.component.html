@@ -5,8 +5,8 @@
     <h6 class="card-subtitle mb-2 text-muted">Ano de lançamento: {{anime.year || 'sem informações'}}</h6>
     <h6 class="card-subtitle mb-2 text-muted">Rating: {{anime.score || 'sem informações'}}</h6>
     <div class="align-self-end mt-auto me-auto">
-      <a href="#" class="btn btn-sm me-1"><i class="fa fa-info me-2"></i>Detailed info</a>
-    <a [href]="anime.url" class="btn btn-sm mx-1"><i class="fa fa-link me-2"></i>myAnimeList</a>
+      <a [routerLink]="['/anime', anime.mal_id]" class="btn btn-sm p-1 me-1"><i class="fa fa-info me-2"></i>More info</a>
+    <a [href]="anime.url" class="btn btn-sm p-1"><i class="fa fa-link me-2"></i>myAnimeList</a>
     
 </div>
 

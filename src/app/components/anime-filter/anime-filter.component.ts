@@ -14,7 +14,6 @@ export class AnimeFilterComponent implements OnInit {
   }
 
   sendAnimeFilter(animeName:string) : void {
-    console.log(animeName)
     this.animeFilter.emit(animeName)
   }
 }

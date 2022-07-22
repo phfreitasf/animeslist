@@ -17,4 +17,8 @@ export class ApiQueryService {
   filterAnimes(animeName:string) : Observable<any> {
     return this.http.get<any>(`${this.apiUrl}anime?q=${animeName}$nsfw`)
   }
+
+  getAnimeById(id:string) : Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}anime/${id}`)
+  }
 }
