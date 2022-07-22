@@ -23,10 +23,10 @@ export class AnimesSeasonComponent implements OnInit, AfterViewInit {
             items: 2,
         },
         740: {
-            items: 3,
+            items: 5,
         },
         940: {
-            items: 3,
+            items: 8,
         },
 
     },
