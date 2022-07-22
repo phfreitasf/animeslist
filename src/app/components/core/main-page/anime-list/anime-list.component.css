@@ -1,3 +1,13 @@
+.pointer {
+    cursor:pointer;
+    transition: 0.3s;
+}
+
+.pointer:hover {
+    filter: invert();
+    /* color: white; */
+}
+
 .rounded {
     box-shadow: 0px 10px 20px #812c52;
     color: rgba(250, 250, 250, 0.8);

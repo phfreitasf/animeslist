@@ -11,6 +11,7 @@ import { Pagination } from './model/Pagination';
 export class AnimeListComponent implements OnInit, DoCheck {
 
   meta: Array<Pagination> = []
+  pages: Array<Pagination> = []
   animes: Array<Anime> = []
   pagination = []
 
@@ -19,23 +20,30 @@ export class AnimeListComponent implements OnInit, DoCheck {
   ngOnInit(): void {
     this.getAnimes(1)
   }
-  
+
   ngDoCheck(): void {
-    
-   }
+
+  }
 
   log() {
     console.log(this.meta)
   }
-  getAnimes(page:any) {
+  getAnimes(page: any) {
     this.anime.getAnimes(page).subscribe(result => this.animes = result.data)
-    this.anime.getAnimes(page).subscribe(result => this.meta = result.meta.links)
+    this.anime.getAnimes(page).subscribe(result => this.pages = result.meta.links)
   }
 
-  filterAnimes(animeName:string) {
+  filterAnimes(animeName: string) {
     this.anime.filterAnimes(animeName).subscribe(result => this.animes = result.data)
     this.anime.filterAnimes(animeName).subscribe(result => this.meta = result.meta.links)
+    setTimeout(() => {
+      this.pages = this.meta.filter(value => this.filterPagination(value) )
+    }, 1000)
+    
   }
-  
 
+filterPagination(value:any) {
+  if (value.label == 'pagination.previous' || value.label == 'pagination.next'){}
+  else return value
+}
 }

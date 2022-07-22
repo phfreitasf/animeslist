@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiQueryService } from 'src/app/services/api-query.service';
-import { Anime } from '../anime-item/model/anime';
+import { Anime } from '../../core/main-page/anime-item/model/anime';
+
 
 @Component({
   selector: 'app-anime-info',
@@ -24,5 +25,8 @@ export class AnimeInfoComponent implements OnInit {
     this.anime.getAnimeById(id).subscribe(result => this.singleAnime = result.data)
   }
 
+  log() {
+    console.log(this.singleAnime.studios)
+  }
 
 }

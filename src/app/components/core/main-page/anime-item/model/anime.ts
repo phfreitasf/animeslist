@@ -1,9 +1,9 @@
 export interface Anime {
-    mal_id?: string
-    title?: string
-    title_japanese?: string
-    background?: string
-    images?: Images
+    mal_id: string
+    title: string
+    title_japanese: string
+    background: string
+    images: Images
     synopsis: string
     year: number
     score: number
