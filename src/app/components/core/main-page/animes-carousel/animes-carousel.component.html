@@ -1,17 +1,29 @@
 <section class="container mt-2">
-  <div class="row d-flex align-items-center">
+
+  <div class="row d-flex align-items-center flex-wrap">
     <p *ngIf="this.placeholder" class="fs-1 col-md-auto pe-0 me-3">
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     </p>
-    <p *ngIf="!this.placeholder" class="fs-1 col-md-auto pe-0 me-3">
-     {{labelCarousel}}
+    <p *ngIf="!this.placeholder" class="fs-1 col-md-auto pe-0 me-3 text-center">
+      {{labelCarousel}}
     </p>
-    <span class="col-md separador my-4"></span>
+    <span class="col-md separador"></span>
   </div>
 </section>
 
+
+<div *ngIf="placeholder" style=" padding: 10px;">
+  <ngx-skeleton-loader class="overflow" animation="progress" count="5" [theme]="{ 
+      'height.px': 320,
+      'width.px': 218,
+      'background-color': 'gray',
+      'margin-right.px' : 10
+    }"></ngx-skeleton-loader>
+</div>
+
+
 <div class="container">
-  <owl-carousel-o [options]="customOptions" class="col-md-auto">
+  <owl-carousel-o *ngIf="!placeholder" [options]="customOptions" class="col-md-auto">
     <ng-container *ngFor="let anime of animeList">
       <ng-template carouselSlide>
         <a [routerLink]="['/anime', anime.mal_id]">
@@ -22,7 +34,7 @@
     </ng-container>
   </owl-carousel-o>
 
-  <section class="row">
+  <section *ngIf="separador" class="row">
     <span class="col-md separador my-4"></span>
   </section>
 </div>

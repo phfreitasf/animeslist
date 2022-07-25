@@ -1,7 +1,11 @@
 import { Component, DoCheck, Input, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { ApiQueryService } from 'src/app/services/api-query.service';
+import { __values } from 'tslib';
 import { Anime } from '../anime-item/model/anime';
 import { Pagination } from './model/Pagination';
+import { forkJoin } from 'rxjs'
+
 
 @Component({
   selector: 'app-anime-list',
@@ -13,24 +17,30 @@ export class AnimeListComponent implements OnInit, DoCheck {
   //Envia array para o carousel da temporada
   animesSeason: Array<Anime> = []
   getSeasonAnimes() {
-    this.anime.getSeasonAnimes(1).subscribe(res => this.animesSeason = res.data)
+    forkJoin({
+      animes: this.anime.getSeasonAnimes(1)
+    })
+      .subscribe(res => this.animesSeason = res.animes.data)
   }
 
   //Envia array para top animes
   animesTop: Array<Anime> = []
   getTopAnimes() {
-    this.anime.getTopAnimes().subscribe(res => this.animesTop = res.data)
+    forkJoin({
+      animes: this.anime.getTopAnimes()
+    })
+      .subscribe(res => this.animesTop = res.animes.data)
   }
 
   meta: Array<Pagination> = []
   pages: Array<Pagination> = []
   animes: Array<Anime> = []
+  // animes: any
   pagination = []
 
   constructor(private anime: ApiQueryService) { }
 
   ngOnInit(): void {
-    this.getAnimes(1)
     this.getSeasonAnimes()
     this.getTopAnimes()
   }
@@ -39,27 +49,36 @@ export class AnimeListComponent implements OnInit, DoCheck {
 
   }
 
-  log() {
-    console.log(this.meta)
-  }
   getAnimes(page: any) {
-    this.anime.getAnimes(page).subscribe(result => this.animes = result.data)
-    this.anime.getAnimes(page).subscribe(result => this.pages = result.meta.links)
+    forkJoin({
+      animes: this.anime.getAnimes(page)
+    })
+      .subscribe(result => this.meta = result.animes)
+
+    this.pages = this.meta.filter(value => this.filterPagination(value))
+
   }
 
   filterAnimes(animeName: string) {
-    this.anime.filterAnimes(animeName).subscribe(result => this.animes = result.data)
-    this.anime.filterAnimes(animeName).subscribe(result => this.meta = result.meta.links)
-    setTimeout(() => {
-      this.pages = this.meta.filter(value => this.filterPagination(value))
-    }, 1000)
-
+    forkJoin({
+      animes: this.anime.filterAnimes(animeName),
+      meta: this.anime.filterAnimes(animeName)
+    })
+      .subscribe(result => {
+        this.animes = result.animes.data;
+        this.meta = result.meta.meta
+      })
+    // .subscribe(result => this.meta = result)
+    this.pages = this.meta.filter(value => this.filterPagination(value))
   }
 
 
 
   filterPagination(value: any) {
-    if (value.label == 'pagination.previous' || value.label == 'pagination.next') { }
-    else return value
+    setTimeout(() => {
+      if (value.label == 'pagination.previous' || value.label == 'pagination.next') { }
+      else return value
+
+    }, 1000);
   }
 }

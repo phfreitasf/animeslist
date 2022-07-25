@@ -13,11 +13,13 @@ export class AnimesCarouselComponent implements OnInit, AfterViewInit {
   @Input() animeList: Array<Anime> = []
   @Input() labelCarousel: string = 'Carousel label'
   @Input() loop = false
+  @Input() separador = false
   placeholder = true
-  
+
+ 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { 
   }
 
   ngAfterViewInit(): void {
@@ -26,7 +28,7 @@ export class AnimesCarouselComponent implements OnInit, AfterViewInit {
   }
 
 
-// Opções Owl Carousel
+  // Opções Owl Carousel
   customOptions: OwlOptions = {
     loop: true,
     margin: 10,

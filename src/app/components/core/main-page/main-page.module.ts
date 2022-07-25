@@ -7,7 +7,7 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
 import { AnimesCarouselComponent } from './animes-carousel/animes-carousel.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { CarouselModule } from 'ngx-owl-carousel-o';
-
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 
 @NgModule({
@@ -22,6 +22,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     AppRoutingModule,
     BrowserAnimationsModule,
     CarouselModule,
+    NgxSkeletonLoaderModule
   ],
   
 })
