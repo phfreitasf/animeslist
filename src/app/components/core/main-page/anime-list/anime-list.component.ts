@@ -10,6 +10,18 @@ import { Pagination } from './model/Pagination';
 })
 export class AnimeListComponent implements OnInit, DoCheck {
 
+  //Envia array para o carousel da temporada
+  animesSeason: Array<Anime> = []
+  getSeasonAnimes() {
+    this.anime.getSeasonAnimes(1).subscribe(res => this.animesSeason = res.data)
+  }
+
+  //Envia array para top animes
+  animesTop: Array<Anime> = []
+  getTopAnimes() {
+    this.anime.getTopAnimes().subscribe(res => this.animesTop = res.data)
+  }
+
   meta: Array<Pagination> = []
   pages: Array<Pagination> = []
   animes: Array<Anime> = []
@@ -19,6 +31,8 @@ export class AnimeListComponent implements OnInit, DoCheck {
 
   ngOnInit(): void {
     this.getAnimes(1)
+    this.getSeasonAnimes()
+    this.getTopAnimes()
   }
 
   ngDoCheck(): void {
@@ -37,13 +51,15 @@ export class AnimeListComponent implements OnInit, DoCheck {
     this.anime.filterAnimes(animeName).subscribe(result => this.animes = result.data)
     this.anime.filterAnimes(animeName).subscribe(result => this.meta = result.meta.links)
     setTimeout(() => {
-      this.pages = this.meta.filter(value => this.filterPagination(value) )
+      this.pages = this.meta.filter(value => this.filterPagination(value))
     }, 1000)
-    
+
   }
 
-filterPagination(value:any) {
-  if (value.label == 'pagination.previous' || value.label == 'pagination.next'){}
-  else return value
-}
+
+
+  filterPagination(value: any) {
+    if (value.label == 'pagination.previous' || value.label == 'pagination.next') { }
+    else return value
+  }
 }

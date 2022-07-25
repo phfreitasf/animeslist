@@ -4,9 +4,10 @@ import { AnimeFilterComponent } from './anime-filter/anime-filter.component';
 import { AnimeItemComponent } from './anime-item/anime-item.component';
 import { AnimeListComponent } from './anime-list/anime-list.component';
 import { AppRoutingModule } from 'src/app/app-routing.module';
-import { AnimesSeasonComponent } from './animes-season/animes-season.component';
+import { AnimesCarouselComponent } from './animes-carousel/animes-carousel.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { CarouselModule } from 'ngx-owl-carousel-o';
+
 
 
 @NgModule({
@@ -14,13 +15,13 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     AnimeFilterComponent,
     AnimeItemComponent,
     AnimeListComponent,
-    AnimesSeasonComponent,
+    AnimesCarouselComponent,
   ],
   imports: [
     CommonModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    CarouselModule
+    CarouselModule,
   ],
   
 })

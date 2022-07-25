@@ -1,0 +1,28 @@
+<section class="container mt-2">
+  <div class="row d-flex align-items-center">
+    <p *ngIf="this.placeholder" class="fs-1 col-md-auto pe-0 me-3">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </p>
+    <p *ngIf="!this.placeholder" class="fs-1 col-md-auto pe-0 me-3">
+     {{labelCarousel}}
+    </p>
+    <span class="col-md separador my-4"></span>
+  </div>
+</section>
+
+<div class="container">
+  <owl-carousel-o [options]="customOptions" class="col-md-auto">
+    <ng-container *ngFor="let anime of animeList">
+      <ng-template carouselSlide>
+        <a [routerLink]="['/anime', anime.mal_id]">
+          <img class="filter" [src]="anime.images.jpg.large_image_url" [alt]="anime.title" [title]="anime.title" />
+          <span class="only-show-on-hover fs-6 w-100 text-center">{{anime.title_english || anime.title}}</span>
+        </a>
+      </ng-template>
+    </ng-container>
+  </owl-carousel-o>
+
+  <section class="row">
+    <span class="col-md separador my-4"></span>
+  </section>
+</div>

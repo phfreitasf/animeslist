@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AnimesSeasonComponent } from './animes-season.component';
+import { AnimesCarouselComponent } from './animes-carousel.component';
 
 describe('AnimesSeasonComponent', () => {
-  let component: AnimesSeasonComponent;
-  let fixture: ComponentFixture<AnimesSeasonComponent>;
+  let component: AnimesCarouselComponent;
+  let fixture: ComponentFixture<AnimesCarouselComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AnimesSeasonComponent ]
+      declarations: [ AnimesCarouselComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(AnimesSeasonComponent);
+    fixture = TestBed.createComponent(AnimesCarouselComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

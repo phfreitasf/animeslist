@@ -22,7 +22,11 @@ export class ApiQueryService {
     return this.http.get<any>(`${this.apiUrl}anime/${id}`)
   }
 
-  getSeasonAnimes() : Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}seasons/now`)
+  getSeasonAnimes(page:any) : Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}seasons/now?page=${page}`)
+  }
+
+  getTopAnimes() : Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}top/anime?filter=airing`)
   }
 }
