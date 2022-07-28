@@ -1,4 +1,5 @@
-import { Component, EventEmitter, OnInit, Output, ViewChild, ViewChildren } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output} from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-anime-filter',
@@ -8,7 +9,7 @@ import { Component, EventEmitter, OnInit, Output, ViewChild, ViewChildren } from
 export class AnimeFilterComponent implements OnInit {
 
   @Output() animeFilter = new EventEmitter()
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -16,4 +17,9 @@ export class AnimeFilterComponent implements OnInit {
   sendAnimeFilter(animeName:string) : void {
     this.animeFilter.emit(animeName)
   }
+
+  searchAnimes(animeName:string) : void {
+    this.router.navigateByUrl(`/results/${animeName}`)
+  }
+
 }

@@ -1,8 +1,9 @@
+<!-- Inicio placeholder -->
 <section class="container mt-2">
 
   <div class="row d-flex align-items-center flex-wrap">
-    <p *ngIf="this.placeholder" class="fs-1 col-md-auto pe-0 me-3">
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <p *ngIf="placeholder" class="fs-1 col-md-auto pe-0 me-3">
+      Loading...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     </p>
     <p *ngIf="!this.placeholder" class="fs-1 col-md-auto pe-0 me-3 text-center">
       {{labelCarousel}}
@@ -12,15 +13,17 @@
 </section>
 
 
-<div *ngIf="placeholder" style=" padding: 10px;">
+<div *ngIf="placeholder">
+  
   <ngx-skeleton-loader class="overflow" animation="progress" count="5" [theme]="{ 
       'height.px': 320,
       'width.px': 218,
       'background-color': 'gray',
-      'margin-right.px' : 10
+      'margin-right.px' : 10,
+      'border-radius.px': 10
     }"></ngx-skeleton-loader>
 </div>
-
+<!-- Fim placeholder -->
 
 <div class="container">
   <owl-carousel-o *ngIf="!placeholder" [options]="customOptions" class="col-md-auto">

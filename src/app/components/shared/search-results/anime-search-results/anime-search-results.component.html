@@ -1,0 +1,39 @@
+<!-- Placeholder de pesquisa -->
+<section class="container mt-2">
+
+  <div class="row d-flex align-items-center flex-wrap">
+    <p *ngIf="placeholder" class="fs-1 col-md-auto pe-0 me-3">
+      Loading...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </p>
+    <p *ngIf="!this.placeholder" class="fs-1 col-md-auto pe-0 me-3 text-center">
+      Animes Results
+    </p>
+    <span class="col-md separador"></span>
+  </div>
+
+
+  <div *ngIf="placeholder" class="d-flex justify-content-center flex-wrap">
+
+    <ngx-skeleton-loader class="overflow" animation="progress" count="5" [theme]="{ 
+          'height.px': 319,
+          'width.px': 206,
+          'background-color': 'gray',
+          'margin-right.px' : 10,
+          'border-radius.px': 10
+        }"></ngx-skeleton-loader>
+  </div>
+</section>
+<!-- Fim Placeholder de pesquisa -->
+
+
+
+
+<!-- Inicio dos resultados -->
+<section class="container">
+  <section class="d-flex flex-wrap justify-content-center">
+    <div *ngFor="let anime of animes" class="mx-2">
+      <app-anime-item [anime]="anime"></app-anime-item>
+    </div>
+  </section>
+</section>
+<!-- Fim dos resultados -->

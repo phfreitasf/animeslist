@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiQueryService } from 'src/app/services/api-query.service';
-import { Anime } from '../../core/main-page/anime-item/model/anime';
+import { Anime } from '../search-results/anime-item/model/anime';
+
 
 
 @Component({
@@ -13,6 +14,7 @@ export class AnimeInfoComponent implements OnInit {
 
   id!: string
   singleAnime!: Anime
+  placeholder = true
 
   constructor(private anime: ApiQueryService, private route: ActivatedRoute) { }
 
@@ -23,6 +25,7 @@ export class AnimeInfoComponent implements OnInit {
 
   getAnimeById(id: string) {
     this.anime.getAnimeById(id).subscribe(result => this.singleAnime = result.data)
+
   }
 
   log() {

@@ -5,12 +5,6 @@
 }
 
 
-.separador {
-    height: 2px;
-    background-color: gray;
-    opacity: 20%;
-    
-  }
   .filter {
     border-radius: 5%;
     height: 20rem;

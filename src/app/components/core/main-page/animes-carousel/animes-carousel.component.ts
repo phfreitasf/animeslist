@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
-import { Anime } from '../anime-item/model/anime';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { Anime } from 'src/app/components/shared/search-results/anime-item/model/anime';
 
 
 @Component({

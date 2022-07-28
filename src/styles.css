@@ -11,3 +11,16 @@ body {
     background-color: #1f232e;
 }
 
+
+.separador {
+    height: 2px;
+    background-color: gray;
+    opacity: 20%;
+    
+  }
+
+  @media (max-width: 600px) {
+    .separador {
+        margin-bottom: 1rem;
+    }
+  }

@@ -1,6 +1,7 @@
 <div class="col-md-8 d-flex flex-column m-auto">
   
   <img src="../../../assets/images/2b.png" class="img-fluid">
-  <input #nameInput type="text" name="text" class="input" placeholder="Pesquise um anime..." (keyup.Enter)="sendAnimeFilter(nameInput.value)">
+  <input #nameInput type="text" name="text" class="input" placeholder="Pesquise um anime..." 
+   (keyup.enter)="searchAnimes(nameInput.value)">
 </div>
 
