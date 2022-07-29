@@ -16,6 +16,7 @@ export class AnimeSearchResultsComponent implements OnInit {
   
   placeholder = true
   animesSearch : string = ''
+
   animes: Array<Anime> = []
   meta: Array<Pagination> = []
   pages: Array<Pagination> = []
@@ -41,7 +42,6 @@ export class AnimeSearchResultsComponent implements OnInit {
         this.meta = result.meta.meta
         this.placeholder = false
       })
-      console.log('chegou 2')
     this.pages = this.meta.filter(value => this.filterPagination(value))
   }
 

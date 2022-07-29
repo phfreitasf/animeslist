@@ -1,7 +1,7 @@
 <!-- Inicio placeholder -->
 <section class="container mt-2">
 
-  <div class="row d-flex align-items-center flex-wrap">
+  <div class="row d-flex align-items-center flex-wrap responsive">
     <p *ngIf="placeholder" class="fs-1 col-md-auto pe-0 me-3">
       Loading...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     </p>
@@ -13,9 +13,9 @@
 </section>
 
 
-<div *ngIf="placeholder" class="d-md-flex flex-wrap">
+<div *ngIf="placeholder">
   
-  <ngx-skeleton-loader class="overflow d-sm-flex" animation="progress" count="5" [theme]="{ 
+  <ngx-skeleton-loader class="m-auto d-flex justify-content-center flex-wrap" animation="progress" count="5" [theme]="{ 
       'height.px': 318,
       'width.px': 218,
       'background-color': 'gray',
@@ -27,7 +27,7 @@
 
 <div class="container">
 
-  <owl-carousel-o *ngIf="!placeholder" [options]="customOptions" class="col-md-auto">
+  <owl-carousel-o *ngIf="!placeholder" [options]="customOptions" class="col-md-auto d-md-flex">
     <ng-container *ngFor="let anime of animeList">
       <ng-template carouselSlide>
         <a [routerLink]="['/anime', anime.mal_id]">
