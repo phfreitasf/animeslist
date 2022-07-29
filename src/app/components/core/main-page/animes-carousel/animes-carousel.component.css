@@ -1,23 +1,23 @@
-
 .pointer:hover {
   filter: drop-shadow(0px 0px 5px #812c52);
   filter: brightness(0.8)
 }
 
 
-  .filter {
-    border-radius: 5%;
-    height: 20rem;
-  }
-a:hover  img.filter {
-    transition: all 0.3s;
-    filter:brightness(0.3) blur(5px);
-  }
+.filter {
+  border-radius: 5%;
+  height: 20rem;
+}
 
-  a:not(:hover)  img.filter {
-    transition: all 0.3s;
-    filter:brightness(1) blur(0px);
-  }
+a:hover img.filter {
+  transition: all 0.3s;
+  filter: brightness(0.3) blur(5px);
+}
+
+a:not(:hover) img.filter {
+  transition: all 0.3s;
+  filter: brightness(1) blur(0px);
+}
 
 a span.only-show-on-hover {
   visibility: hidden;
@@ -26,15 +26,17 @@ a span.only-show-on-hover {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-a:hover span.only-show-on-hover  {
+
+
+
+
+a:hover span.only-show-on-hover {
   visibility: visible;
-  
-  
 }
 
+
 @media (max-width: 600px) {
-.filter {
-  height: 15rem;
-  
-}
+  .filter {
+    height: 15rem;
+  }
 }

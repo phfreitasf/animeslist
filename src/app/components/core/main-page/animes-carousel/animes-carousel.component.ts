@@ -37,8 +37,10 @@ export class AnimesCarouselComponent implements OnInit, AfterViewInit {
     dots: false,
     items: 5,
     navSpeed: 800,
-    navText: ["<i class='fa fa-chevron-left text-black'></i>", "<i class='fa fa-chevron-right text-black'></i>"],
+    navText: ['<i class="fa fa-angle-left" aria-hidden="true"></i>',
+        '<i class="fa fa-angle-right" aria-hidden="true"></i>'],
     nav: true,
+    
     responsive: {
       0: {
         items: 2

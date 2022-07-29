@@ -13,9 +13,9 @@
 </section>
 
 
-<div *ngIf="placeholder">
+<div *ngIf="placeholder" class="d-md-flex flex-wrap">
   
-  <ngx-skeleton-loader class="overflow d-flex flex-wrap justify-content-center" animation="progress" count="5" [theme]="{ 
+  <ngx-skeleton-loader class="overflow d-sm-flex" animation="progress" count="5" [theme]="{ 
       'height.px': 318,
       'width.px': 218,
       'background-color': 'gray',
@@ -26,6 +26,7 @@
 <!-- Fim placeholder -->
 
 <div class="container">
+
   <owl-carousel-o *ngIf="!placeholder" [options]="customOptions" class="col-md-auto">
     <ng-container *ngFor="let anime of animeList">
       <ng-template carouselSlide>
@@ -35,6 +36,8 @@
         </a>
       </ng-template>
     </ng-container>
+
+  
   </owl-carousel-o>
 
   <section *ngIf="separador" class="row">

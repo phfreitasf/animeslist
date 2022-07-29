@@ -11,6 +11,12 @@ body {
   margin-bottom: 2rem;
 }
 
+.fix-size{
+  width: 316px;
+  height: 435px;
+  max-width: 316px;
+  max-height: 435px;
+}
 .btn {
     border: 1px solid #dd2476;
   border-image-slice: 1;

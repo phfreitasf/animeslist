@@ -5,10 +5,10 @@
       Loading...
     </p>
     <!-- Fim placeholder titulo-->
-    
-    
-    
 
+
+
+    <!-- Inicio placeholder card-->
     <div *ngIf="placeholder" class="container">
       <div class="row">
 
@@ -28,7 +28,7 @@
         }"></ngx-skeleton-loader>
       </div>
     </div>
-      
+    <!-- fim placeholder card-->
 
 
     <p *ngIf="!placeholder" class="fs-1 col-md-auto pe-0 me-3 text-center">
@@ -46,13 +46,16 @@
 
   <div class="d-flex flex-column align-items-stretch text-sm-start">
     <section class="d-flex flex-wrap row ">
-      <span class="fs-1 text-warning col-12 text-center">{{singleAnime.title}}</span>
-      <span class="text-muted fs-6 col-3 pe-4">Status: <p>{{singleAnime.status}}</p></span>
-      <span class="text-muted fs-6 col-3 pe-4">Episódios: <p>{{singleAnime.episodes}}</p></span>
-      <span class="text-muted fs-6 col-3 pe-4">Ano: <p>{{singleAnime.year}}</p></span>
-      <span class="text-muted fs-6 col-3 pe-4">Estúdio: <p >{{singleAnime.studios[0].name}}</p></span>
-      <a (click)="goToCrunchyRoll(singleAnime.title_english)" class="btn text-decoration-none text-white ms-2 mb-2 w-auto"><img class="me-1" src="../../../../assets/images/crunchyrol_ico.png"/>CrunchyRoll</a>
-      <a [href]="singleAnime.trailer.url" class="btn text-decoration-none text-white ms-2 mb-2 w-auto"><i class="fa fa-video-camera me-1 mb-1" aria-hidden="true"></i>Watch Trailer</a>
+      <span class="fs-1 text-warning col-12 text-center">{{singleAnime.title || 'N/A'}}</span>
+      <span class="text-muted fs-6 col-md-3">Status: <p>{{singleAnime.status || 'N/A'}}</p></span>
+      <span class="text-muted fs-6 col-md-3">Episódios: <p>{{singleAnime.episodes || 'N/A'}}</p></span>
+      <span class="text-muted fs-6 col-md-3">Ano: <p>{{singleAnime.year || 'N/A'}}</p></span>
+      <span class="text-muted fs-6 col-md-3">Estúdio: <p>{{singleAnime.studios[0].name || 'N/A'}}</p></span>
+      <a (click)="goToCrunchyRoll(singleAnime.title_english)"
+        class="btn text-decoration-none text-white ms-2 mb-2 w-auto"><img class="me-1"
+          src="../../../../assets/images/crunchyrol_ico.png" />CrunchyRoll</a>
+      <a [href]="singleAnime.trailer.url" class="btn text-decoration-none text-white ms-2 mb-2 w-auto"><i
+          class="fa fa-video-camera me-1 mb-1" aria-hidden="true"></i>Watch Trailer</a>
     </section>
     <span class="text-muted fs-6">Synopsis:</span>
     <p class="text-white overflow-auto">{{singleAnime.synopsis}}</p>
