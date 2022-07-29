@@ -13,3 +13,13 @@
   transition: 0.3s;
   color: black
 }
+
+@media (max-width: 700px) {
+  .responsive {
+    object-fit: none; /* nao esticar imagem */
+    object-position: top; /* posicao do zoom */
+    height: 200px;
+    width: 100%;
+    border-radius: 0%;
+  }
+}

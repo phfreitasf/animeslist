@@ -15,8 +15,8 @@
 
 <div *ngIf="placeholder">
   
-  <ngx-skeleton-loader class="overflow" animation="progress" count="5" [theme]="{ 
-      'height.px': 320,
+  <ngx-skeleton-loader class="overflow d-flex flex-wrap justify-content-center" animation="progress" count="5" [theme]="{ 
+      'height.px': 318,
       'width.px': 218,
       'background-color': 'gray',
       'margin-right.px' : 10,
@@ -30,7 +30,7 @@
     <ng-container *ngFor="let anime of animeList">
       <ng-template carouselSlide>
         <a [routerLink]="['/anime', anime.mal_id]">
-          <img class="filter" [src]="anime.images.jpg.large_image_url" [alt]="anime.title" [title]="anime.title" />
+          <img #animeImg class="filter" [src]="anime.images.jpg.large_image_url" [alt]="anime.title" [title]="anime.title" />
           <span class="only-show-on-hover fs-6 w-100 text-center">{{anime.title_english || anime.title}}</span>
         </a>
       </ng-template>

@@ -29,4 +29,5 @@ export class ApiQueryService {
   getTopAnimes() : Observable<any> {
     return this.http.get<any>(`${this.apiUrl}top/anime?filter=airing`)
   }
+
 }

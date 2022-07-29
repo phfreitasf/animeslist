@@ -1,0 +1,29 @@
+nav.navbar-site {
+    background-color: rgba(0,0,0,.5);
+    width: 100%;
+    height: 70px;
+    padding: 0 0 0 10px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    font-family: Neo Sans,sans-serif;
+}
+
+.top-nav-arrow {
+        background-color: unset;
+        border: unset;
+        border-left: 90px solid transparent;
+        border-right: 90px solid transparent;
+        border-top: 35px solid rgba(0, 0, 0, .5);
+        -webkit-filter: drop-shadow(0 2px 4px rgba(22, 22, 24, .25));
+        filter: drop-shadow(0 2px 4px rgba(22, 22, 24, .25));
+        position: absolute;
+        top: 70px;
+        z-index: -1;
+        right: calc(50% - 90px);
+        margin-left: auto;
+        margin-right: auto;
+        outline: 0 !important;
+        padding: 0
+    }
+

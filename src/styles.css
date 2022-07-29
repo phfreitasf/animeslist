@@ -9,6 +9,7 @@
 }
 body {
     background-color: #1f232e;
+    padding-top: 110px;
 }
 
 
@@ -19,7 +20,7 @@ body {
     
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 767px) {
     .separador {
         margin-bottom: 1rem;
     }

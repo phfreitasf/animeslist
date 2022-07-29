@@ -1,7 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { forkJoin } from 'rxjs';
 import { ApiQueryService } from 'src/app/services/api-query.service';
-import { Anime } from '../search-results/anime-item/model/anime';
+import { Anime } from '../anime-item/model/anime';
+
 
 
 
@@ -24,12 +26,15 @@ export class AnimeInfoComponent implements OnInit {
   }
 
   getAnimeById(id: string) {
-    this.anime.getAnimeById(id).subscribe(result => this.singleAnime = result.data)
-
+    forkJoin({
+      anime : this.anime.getAnimeById(id)
+    }).subscribe(result => {
+      this.singleAnime = result.anime.data,
+      this.placeholder = false})
   }
 
-  log() {
-    console.log(this.singleAnime.studios)
+  goToCrunchyRoll (animeName:string) {
+    window.open(`https://crunchyroll.com/pt-br/search?q=${animeName}`,'_blank')
   }
 
 }
