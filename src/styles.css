@@ -2,6 +2,9 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 @import '~font-awesome/css/font-awesome.min.css';
 
+:root {
+  --laranjinha : #ffc107;
+}
 
 * {
   font-family: monospace, monospace;
@@ -14,7 +17,7 @@ body {
 }
 
 .text-head {
-  color: #ffc107!important /* Cor dos cabeçalhos */
+  color: var(--laranjinha)!important /* Cor dos cabeçalhos */
 
 }
 .separador {

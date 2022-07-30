@@ -35,7 +35,14 @@ export class AnimeSearchResultsComponent implements OnInit {
     });
     this.animes = this.result.data
     // 
-    await this.createPagination(animesSearch, page)
+    try {
+      await this.createPagination(animesSearch, page)
+    }
+    catch{
+      setTimeout(() => {
+       this.createPagination(animesSearch, page)
+      }, 1000);
+    }
     this.placeholder = false
   }
 
