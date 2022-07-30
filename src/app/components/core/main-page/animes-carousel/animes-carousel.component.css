@@ -6,7 +6,7 @@
 
 .filter {
   border-radius: 5%;
-  height: 20rem;
+  height: 18rem;
 }
 
 a:hover img.filter {
@@ -35,4 +35,10 @@ a:hover span.only-show-on-hover {
 }
 
 
+@media (max-width: 768px) {
 
+  
+.filter {
+  height: 14rem;
+}
+}
