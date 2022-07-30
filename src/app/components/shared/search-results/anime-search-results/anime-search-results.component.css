@@ -1,0 +1,15 @@
+.nav-red {
+    background-color: unset!important;
+    color: white
+}
+
+.nav-red:hover,
+.nav-red:focus,
+.nav-button-active {
+background-color: #ffc107;
+  box-shadow: inset 10px 10px 100px #ffc107;
+  -webkit-background-clip: none !important;
+  -webkit-text-fill-color: black !important;
+  /* box-shadow: #222 1px 0 10px; */
+
+}

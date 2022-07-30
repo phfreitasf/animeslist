@@ -1,11 +1,11 @@
 <!-- Inicio placeholder -->
-<section class="container mt-2">
+<section class="container mt-2 ">
 
   <div class="row d-flex align-items-center flex-wrap responsive">
-    <p *ngIf="placeholder" class="fs-1 col-md-auto pe-0 me-3">
+    <p *ngIf="placeholder" class="fs-1 col-md-auto pe-0 me-3 text-head">
       Loading...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     </p>
-    <p *ngIf="!this.placeholder" class="fs-1 col-md-auto pe-0 me-3 text-center">
+    <p *ngIf="!this.placeholder" class="fs-1 col-md-auto pe-0 me-3 text-center text-head">
       {{labelCarousel}}
     </p>
     <span class="col-md separador"></span>
@@ -31,7 +31,7 @@
     <ng-container *ngFor="let anime of animeList">
       <ng-template carouselSlide>
         <a [routerLink]="['/anime', anime.mal_id]">
-          <img #animeImg class="filter" [src]="anime.images.jpg.large_image_url" [alt]="anime.title" [title]="anime.title" />
+          <img #animeImg class="filter" [src]="anime.images.webp.large_image_url" [alt]="anime.title" [title]="anime.title" />
           <span class="only-show-on-hover fs-6 w-100 text-center">{{anime.title_english || anime.title}}</span>
         </a>
       </ng-template>

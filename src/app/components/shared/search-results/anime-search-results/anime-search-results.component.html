@@ -1,8 +1,8 @@
 <!-- Placeholder de pesquisa -->
 <section class="container mt-2">
 
-  <div class="row d-flex align-items-center flex-wrap">
-    <p *ngIf="placeholder" class="fs-1 col-md-auto pe-0 me-3">
+  <div class="row d-flex align-items-center flex-wrap responsive">
+    <p *ngIf="placeholder" class="fs-1 col-md-auto pe-0 me-3 text-center">
       Loading...
     </p>
     <p *ngIf="!this.placeholder" class="fs-1 col-md-auto pe-0 me-3 text-center">
@@ -14,7 +14,7 @@
 
   <div *ngIf="placeholder" class="d-flex justify-content-center flex-wrap">
 
-    <ngx-skeleton-loader class="overflow" animation="progress" count="5" [theme]="{ 
+    <ngx-skeleton-loader class="m-auto d-flex justify-content-center flex-wrap" animation="progress" count="5" [theme]="{ 
           'height.px': 319,
           'width.px': 206,
           'background-color': 'gray',
@@ -29,7 +29,17 @@
 
 
 <!-- Inicio dos resultados -->
-<section class="container">
+
+<section *ngIf="!placeholder" class="container">
+  <nav aria-label="Page navigation" class="d-flex justify-content-center">
+    <ul class="pagination">
+      <li *ngFor="let link of meta; let i = index" class="page-item pointer"><a class="page-link nav-red"
+          (click)="filterAnimes(animesSearch,link.label); setActiveButtonIndex(i)"
+          [ngClass]="{'nav-button-active': i == activeIndex}">{{link.label}}</a>
+      </li>
+
+    </ul>
+  </nav>
   <section class="d-flex flex-wrap justify-content-center">
     <div *ngFor="let anime of animes" class="mx-2">
       <app-anime-item [anime]="anime"></app-anime-item>

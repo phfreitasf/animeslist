@@ -20,7 +20,6 @@ export class AnimeFilterComponent implements OnInit {
   }
 
   searchAnimes(animeName:string,nfsw:boolean) : void {
-  console.log(nfsw)
     if(nfsw) this.router.navigateByUrl(`/results/${animeName}&nsfw`)
     else this.router.navigateByUrl(`/results/${animeName}&sfw`)
   }

@@ -18,9 +18,9 @@ export interface Anime {
 
 
 export interface Images {
-    jpg: JPG
+    webp: Webp
 }
-export interface JPG {
+export interface Webp {
     large_image_url: string
 }
 

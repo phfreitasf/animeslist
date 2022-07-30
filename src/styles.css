@@ -13,18 +13,18 @@ body {
   padding-top: 80px;
 }
 
+.text-head {
+  color: #ffc107!important /* Cor dos cabeçalhos */
 
+}
 .separador {
   height: 2px;
   background-color: gray;
   opacity: 20%;
-
 }
 
-@media (max-width: 767px) {
-  .separador {
-    margin-bottom: 1rem;
-  }
+.pointer {
+  cursor: pointer;
 }
 
 .owl-prev,
@@ -53,4 +53,22 @@ body {
 .owl-prev i,
 .owl-next i {
   transform: scale(3);
+}
+
+
+
+
+
+
+@media (max-width: 767px) {
+  .separador {
+    margin-bottom: 1rem;
+  }
+  .filter {
+    height: 15rem;
+  }
+  
+  .responsive {
+    flex-direction: column-reverse;
+}
 }
