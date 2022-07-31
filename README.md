@@ -1,9 +1,12 @@
 # Animeslist
-Exercitando conhecimentos sobre Angular.
-Consumindo a API : https://api.jikan.moe/v4
-App rodando em : https://animelist2.netlify.app/
 
+Exercitando conhecimentos sobre Angular.  
 
+Consumindo a API : https://api.jikan.moe/v4  
+
+App rodando em : https://animelist2.netlify.app/  
+
+#
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.2.
 
 ## Development server
