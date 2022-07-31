@@ -1,0 +1,29 @@
+/* Alteracoes para as setinhas do carousel aparecerem nas laterais dos cards */
+
+.owl-prev,
+.owl-next {
+  width: auto;
+  /* height: 100px; */
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: block !important;
+  border: 0px solid black;
+}
+
+.owl-theme .owl-nav [class*=owl-] {
+  background: none !important;
+}
+
+.owl-prev {
+  left: -30px;
+}
+
+.owl-next {
+  right: -30px;
+}
+
+.owl-prev i,
+.owl-next i {
+  transform: scale(3);
+}

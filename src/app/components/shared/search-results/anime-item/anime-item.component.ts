@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Meta } from '@angular/platform-browser';
 import { Anime } from './model/anime';
 
 

@@ -14,7 +14,9 @@ export class AnimesCarouselComponent implements OnInit, AfterViewInit {
   @Input() labelCarousel: string = 'Carousel label'
   @Input() loop = false
   @Input() separador = false
+  @Input() autoplay = false
   placeholder = true
+  temp : Array<string> = []
 
  
   constructor() { }
@@ -23,14 +25,21 @@ export class AnimesCarouselComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
+    this.temp = this.labelCarousel.split(' ')
+    console.log(this.temp)
+    this.labelCarousel = `${this.temp[0]}<span class="text-color-skin">${this.temp[1]}</span>`
     this.placeholder = false
     this.customOptions.loop = this.loop
+    this.customOptions.autoplay = this.autoplay
   }
 
 
   // Opções Owl Carousel
   customOptions: OwlOptions = {
     loop: true,
+    autoplay:false,
+    autoplayTimeout:3000,
+    autoplayHoverPause:true,
     margin: 10,
     mouseDrag: true,
     touchDrag: true,

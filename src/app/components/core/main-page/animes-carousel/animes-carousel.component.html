@@ -6,7 +6,7 @@
       Loading...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     </p>
     <p *ngIf="!this.placeholder" class="fs-1 col-md-auto pe-0 me-3 text-center text-head">
-      {{labelCarousel}}
+      <span [innerHTML]="labelCarousel"></span>
     </p>
     <span class="col-md separador"></span>
   </div>
@@ -14,7 +14,7 @@
 
 
 <div *ngIf="placeholder">
-  
+
   <ngx-skeleton-loader class="m-auto d-flex justify-content-center flex-wrap" animation="progress" count="5" [theme]="{ 
       'height.px': 318,
       'width.px': 218,
@@ -31,13 +31,13 @@
     <ng-container *ngFor="let anime of animeList">
       <ng-template carouselSlide>
         <a [routerLink]="['/anime', anime.mal_id]">
-          <img #animeImg class="filter" [src]="anime.images.webp.large_image_url" [alt]="anime.title" [title]="anime.title" />
+          <img class="filter" [src]="anime.images.webp.large_image_url" [alt]="anime.title" [title]="anime.title" />
           <span class="only-show-on-hover fs-6 w-100 text-center">{{anime.title_english || anime.title}}</span>
         </a>
       </ng-template>
     </ng-container>
 
-  
+
   </owl-carousel-o>
 
   <section *ngIf="separador" class="row">

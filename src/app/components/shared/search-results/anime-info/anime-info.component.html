@@ -31,26 +31,28 @@
     <!-- fim placeholder card-->
 
 
-    <p *ngIf="!placeholder" class="fs-1 col-md-auto pe-0 me-3 text-center text-head">
-      Anime infos
+    <p *ngIf="!placeholder" class="fs-1 col-md-auto pe-0 me-3 text-center text-white">
+      Anime<span class="text-color-skin">Infos</span>
     </p>
     <span class="col-md separador"></span>
   </div>
 </section>
 <!-- left panel-->
 <div *ngIf="!placeholder" class="d-md-flex align-items-start justify-content-center container">
-  <div class="flex-column col-md-4 justify-content-center text-center ">
-    <img [src]="singleAnime.images.webp.large_image_url" class="rounded mb-4" width="80%" [alt]="singleAnime.title">
+  <div class="flex-column col-md-4 justify-content-center text-center">
+      <img [src]="singleAnime.images.webp.large_image_url" class="rounded mb-4" width="80%" [alt]="singleAnime.title"/>
     <p>Classificação: {{singleAnime.rating}}</p>
   </div>
 
+
+<!-- right panel -->
   <div class="d-flex flex-column align-items-stretch text-sm-start">
     <section class="d-flex flex-wrap row ">
-      <span class="fs-1 text-white col-12 text-center">{{singleAnime.title || 'N/A'}}</span>
+      <span class="fs-1 col-12 text-center text-color-skin">{{singleAnime.title || 'N/A'}}</span>
       <span class="text-muted fs-6 col-md-3">Status: <p>{{singleAnime.status || 'N/A'}}</p></span>
-      <span class="text-muted fs-6 col-md-3">Episódios: <p>{{singleAnime.episodes || 'N/A'}}</p></span>
-      <span class="text-muted fs-6 col-md-3">Ano: <p>{{singleAnime.year || 'N/A'}}</p></span>
-      <span class="text-muted fs-6 col-md-3">Estúdio: <p>{{singleAnime.studios[0].name || 'N/A'}}</p></span>
+      <span class="text-muted fs-6 col-md-3">Episodes: <p>{{singleAnime.episodes || 'N/A'}}</p></span>
+      <span class="text-muted fs-6 col-md-3">Year: <p>{{singleAnime.year || 'N/A'}}</p></span>
+      <span class="text-muted fs-6 col-md-3">Studio: <p>{{singleAnime.studios[0].name || 'N/A'}}</p></span>
       <a (click)="goToCrunchyRoll(singleAnime.title_english)"
         class="btn text-decoration-none text-white ms-2 mb-2 w-auto"><img class="me-1"
           src="../../../../assets/images/crunchyrol_ico.png" />CrunchyRoll</a>

@@ -7,15 +7,15 @@ import { AnimeSearchResultsComponent } from './components/shared/search-results/
 
 
 const routes: Routes = [{
-  path: '', component : AnimeListComponent
+  path: '', component: AnimeListComponent
 },
-{ path: 'anime/:id', component: AnimeInfoComponent},
+{ path: 'anime/:id', component: AnimeInfoComponent },
 {
   path: 'results/:name', component: AnimeSearchResultsComponent
 }];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

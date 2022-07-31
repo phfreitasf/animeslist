@@ -36,4 +36,4 @@ import { ApiQueryService } from './services/api-query.service';
 export class AppModule {
 
 
- }
+}

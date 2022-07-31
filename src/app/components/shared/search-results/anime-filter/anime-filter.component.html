@@ -1,15 +1,14 @@
 <div class="col-md-8 d-flex flex-column m-auto container align-items-center">
-  
+
   <img src="../../../assets/images/2b.png" class="responsive">
-  <input #nameInput type="text" name="text" class="input col-12" placeholder="Pesquise um anime..." 
-  (keyup.enter)="searchAnimes(nameInput.value, this.nfsw)">
-  
+  <input #nameInput type="text" name="text" class="input col-12" placeholder="Search anime..."
+    (keyup.enter)="searchAnimes(nameInput.value, this.nfsw)">
+
   <div class="row">
     <label class="switch col-auto px-0">
       <input type="checkbox" (click)="setNfsw($event)">
       <span class="slider"></span>
-     </label>
-<p class="col-auto mt-2 px-0">Show +18 series</p>
-    </div>
+    </label>
+    <p class="col-auto mt-2 px-0">Show +18 series</p>
+  </div>
 </div>
-

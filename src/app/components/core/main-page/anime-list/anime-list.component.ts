@@ -42,12 +42,4 @@ export class AnimeListComponent implements OnInit, DoCheck {
 
   }
 
-  // getAnimes(page: any) {
-  //   forkJoin({
-  //     animes: this.anime.getAnimes(page)
-  //   })
-  //     .subscribe(result => this.meta = result.animes)
-  //   this.pages = this.meta.filter(value => this.filterPagination(value))
-  // }
-
 }

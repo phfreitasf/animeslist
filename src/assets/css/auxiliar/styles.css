@@ -1,0 +1,58 @@
+/* Contem algumas personalizacoes e hover dos cards */
+
+.text-head {
+  color: var(--laranjinha) !important
+    /* Cor dos cabeçalhos */
+}
+
+.separador {
+  height: 2px;
+  background-color: gray;
+  opacity: 20%;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.pointer:hover {
+  filter: drop-shadow(0px 0px 5px #812c52);
+  filter: brightness(0.8)
+}
+
+
+a:hover img.filter, a:hover img.img-card-size  {
+  transition: all 0.3s;
+  filter: brightness(0.3) blur(5px);
+}
+
+a:not(:hover) img.filter, a:not(:hover) img.img-card-size {
+  transition: all 0.3s;
+  filter: brightness(1) blur(0px);
+}
+
+a span.only-show-on-hover {
+  visibility: hidden;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+a:hover span.only-show-on-hover {
+  visibility: visible;
+}
+
+
+@media (max-width: 767px) {
+  .separador {
+    margin-bottom: 1rem;
+  }
+  .filter {
+    height: 15rem;
+  }
+  
+  .responsive {
+    flex-direction: column-reverse;
+}
+}
