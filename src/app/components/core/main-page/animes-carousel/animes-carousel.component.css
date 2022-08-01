@@ -3,28 +3,6 @@
   border-radius: 5%;
   height: 18rem;
 }
-
-.pagination {
-  --bs-pagination-border-color : var(--laranjinha);
-}
-
-.nav-orange {
-    background-color: unset!important;
-    color: white
-}
-
-
-.nav-orange:hover,
-.nav-orange:focus,
-.nav-button-active {
-background-color: var(--laranjinha);
-  box-shadow: inset 10px 10px 100px var(--laranjinha);
-  -webkit-background-clip: none !important;
-  -webkit-text-fill-color: black !important;
-  /* box-shadow: #222 1px 0 10px; */
-
-}
-
 @media (max-width: 768px) {
 .filter {
   height: 14rem;
