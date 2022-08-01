@@ -1,6 +1,5 @@
-import { Component, DoCheck, Input, OnInit } from '@angular/core';
+import { Component, DoCheck, OnInit } from '@angular/core';
 import { ApiQueryService } from 'src/app/services/api-query.service';
-// import { __values } from 'tslib';
 import { forkJoin } from 'rxjs'
 import { Anime } from 'src/app/components/shared/search-results/anime-item/model/anime';
 
@@ -12,13 +11,28 @@ import { Anime } from 'src/app/components/shared/search-results/anime-item/model
 })
 export class AnimeListComponent implements OnInit, DoCheck {
 
-  //Envia array para o carousel da temporada
-  animesSeason: Array<Anime> = []
-  getSeasonAnimes() {
+  //Envia array para o carousel da temporada, 
+  //a api tem limite  de requisicao muito baixo entao vou mandar só segunda pelo pai
+  animeCarousel: Array<Anime> = []
+  
+  getSeasonAnimes(dayOfTheWeek:string) {
+    console.log(dayOfTheWeek)
     forkJoin({
-      animes: this.anime.getSeasonAnimes(1)
+      animeMonday: this.anime.getSeasonAnimes(dayOfTheWeek),
     })
-      .subscribe(res => this.animesSeason = res.animes.data)
+      .subscribe(res => {
+        this.animeCarousel = res.animeMonday.data
+                          .filter(this.filterKids);
+      })
+  }
+
+  filterKids(anime: Anime) {
+    try {
+      if (anime.demographics[0].name == 'Kids') return false
+      else return true
+    }
+    catch {}
+    return true
   }
 
   //Envia array para top animes
@@ -30,11 +44,10 @@ export class AnimeListComponent implements OnInit, DoCheck {
       .subscribe(res => this.animesTop = res.animes.data)
   }
 
-
   constructor(private anime: ApiQueryService) { }
 
   ngOnInit(): void {
-    this.getSeasonAnimes()
+    this.getSeasonAnimes('Monday')
     this.getTopAnimes()
   }
 

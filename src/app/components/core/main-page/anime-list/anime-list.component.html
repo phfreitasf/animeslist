@@ -1,10 +1,14 @@
-
 <section class="container">
   <div class="d-md-flex">
-    <app-animes-carousel [animeList]="animesSeason" labelCarousel="Airing Animes" [loop]="true" [autoplay]="true"></app-animes-carousel>
+    <app-animes-carousel 
+    (day)="getSeasonAnimes($event)"
+    [animeList]="animeCarousel"
+    labelCarousel="Airing Animes" [loop]="false" [autoplay]="false"
+    [navDays]="true"></app-animes-carousel>
   </div>
+
   <div class="d-md-flex">
-    <app-animes-carousel [animeList]="animesTop" labelCarousel="Top Airing"></app-animes-carousel>
+    <app-animes-carousel  [animesTop]="this.animesTop" [topCarousel]="true" labelCarousel="Top Airing"></app-animes-carousel>
   </div>
 
 </section>

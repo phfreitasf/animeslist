@@ -1,0 +1,19 @@
+@media (min-width:768px) {
+  .owl-item {
+    min-width: 196px;
+    max-width: 196px;
+  }
+
+  .owl-stage {
+    max-height: 288px;
+  }
+
+  .fix-width {
+    width: 1320px;
+  }
+
+  .fix-width div.owl-stage {
+    display: flex;
+    justify-content: center;
+  }
+}

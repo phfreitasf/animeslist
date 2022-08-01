@@ -56,7 +56,6 @@ export class AnimeSearchResultsComponent implements OnInit {
 
   setActiveButtonIndex(i: any) {
     this.activeIndex = i
-    console.log(this.activeIndex)
   }
 
   filterPagination(value: any) {

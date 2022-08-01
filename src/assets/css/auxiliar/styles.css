@@ -56,3 +56,9 @@ a:hover span.only-show-on-hover {
     flex-direction: column-reverse;
 }
 }
+
+@media (min-width: 768px) {
+  .filter {
+    max-width: 196px;
+  }
+}

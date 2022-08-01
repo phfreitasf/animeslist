@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,15 +8,10 @@ import { Router } from '@angular/router';
 })
 export class AnimeFilterComponent implements OnInit {
   
-  @Output() animeFilter = new EventEmitter()
   nfsw : boolean = false
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-  }
-
-  sendAnimeFilter(animeName:string) : void {
-    this.animeFilter.emit(animeName)
   }
 
   searchAnimes(animeName:string,nfsw:boolean) : void {

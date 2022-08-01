@@ -3,6 +3,7 @@
 @import '~font-awesome/css/font-awesome.min.css';
 @import './assets/css/auxiliar/styles.css';
 @import './assets/css/owl/owl.carousel.sideNavArrows.css';
+@import './assets/css/owl/owl.carousel.fixSizes.css';
 
 :root {
   --laranjinha: #ffc107;

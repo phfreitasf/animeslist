@@ -1,45 +1,53 @@
 <!-- Inicio placeholder -->
-<section class="container mt-2 ">
-
-  <div class="row d-flex align-items-center flex-wrap responsive">
-    <p *ngIf="placeholder" class="fs-1 col-md-auto pe-0 me-3 text-head">
+<section *ngIf="placeholder">
+  <div class="row d-flex align-items-center justify-content-center flex-wrap responsive">
+    <p class="fs-1 col-md-auto pe-0 me-3 text-head">
       Loading...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     </p>
-    <p *ngIf="!this.placeholder" class="fs-1 col-md-auto pe-0 me-3 text-center text-head">
-      <span [innerHTML]="labelCarousel"></span>
-    </p>
-    <span class="col-md separador"></span>
+    <span class="col-md-8 separador"></span>
   </div>
-</section>
 
-
-<div *ngIf="placeholder">
-
-  <ngx-skeleton-loader class="m-auto d-flex justify-content-center flex-wrap" animation="progress" count="5" [theme]="{ 
-      'height.px': 318,
-      'width.px': 218,
+  <ngx-skeleton-loader class="m-auto d-flex justify-content-center " animation="progress" count="5" [theme]="{ 
+      'height.px': 288,
+      'width.px': 207,
       'background-color': 'gray',
       'margin-right.px' : 10,
       'border-radius.px': 10
     }"></ngx-skeleton-loader>
-</div>
+</section>
 <!-- Fim placeholder -->
 
-<div class="container">
 
-  <owl-carousel-o *ngIf="!placeholder" [options]="customOptions" class="col-md-auto d-md-flex">
-    <ng-container *ngFor="let anime of animeList">
+
+
+<div *ngIf="!placeholder" class="container" [ngClass]="{'fix-width' : this.activeCarousel.length <= 5}">
+  <div class="row d-flex align-items-center flex-wrap responsive">
+    <p class="fs-1 col-md-auto pe-0 me-3 text-center text-head">
+      <span [innerHTML]="labelCarousel"></span>
+    </p>
+    <span class="col-md separador"></span>
+  </div>
+
+  <nav *ngIf="navDays" aria-label="Page navigation" class="d-flex justify-content-center responsive">
+    <ul class="pagination pagination-sm d-sm-flex flex-wrap justify-content-center">
+      <li *ngFor="let day of days; let i = index" class="page-item pointer my-1"><a class="page-link nav-orange"
+          (click)="setActiveButtonIndex(i);changeDay(day)" 
+          [ngClass]="{'nav-button-active': i == activeIndex}"><i
+          [ngClass]="{'fa fa-calendar-check-o me-1' : i == activeIndex}" aria-hidden="true"></i>{{day}}</a>
+      </li>
+    </ul>
+  </nav>
+
+  <owl-carousel-o [options]="customOptions" class="col-md-auto">
+    <ng-container *ngFor="let anime of activeCarousel; let i = index">
       <ng-template carouselSlide>
-        <a [routerLink]="['/anime', anime.mal_id]">
+        <a [routerLink]="['/anime', anime.mal_id]" class="">
           <img class="filter" [src]="anime.images.webp.large_image_url" [alt]="anime.title" [title]="anime.title" />
           <span class="only-show-on-hover fs-6 w-100 text-center">{{anime.title_english || anime.title}}</span>
         </a>
       </ng-template>
     </ng-container>
-
-
   </owl-carousel-o>
-
   <section *ngIf="separador" class="row">
     <span class="col-md separador my-4"></span>
   </section>

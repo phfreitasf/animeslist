@@ -44,7 +44,7 @@
   <!-- paginacao -->
   <nav aria-label="Page navigation" class="d-flex justify-content-center">
     <ul class="pagination">
-      <li *ngFor="let link of meta; let i = index" class="page-item pointer"><a class="page-link nav-red"
+      <li *ngFor="let link of meta; let i = index" class="page-item pointer"><a class="page-link nav-orange"
           (click)="filterAnimes(animesSearch,link.label); setActiveButtonIndex(i)"
           [ngClass]="{'nav-button-active': i == activeIndex}">{{link.label}}</a>
       </li>
@@ -62,7 +62,7 @@
     <!-- paginacao extra-->
     <nav aria-label="Page navigation" class="d-flex justify-content-center">
       <ul class="pagination">
-        <li *ngFor="let link of meta; let i = index" class="page-item pointer"><a class="page-link nav-red"
+        <li *ngFor="let link of meta; let i = index" class="page-item pointer"><a class="page-link nav-orange"
             (click)="filterAnimes(animesSearch,link.label); setActiveButtonIndex(i)"
             [ngClass]="{'nav-button-active': i == activeIndex}">{{link.label}}</a>
         </li>

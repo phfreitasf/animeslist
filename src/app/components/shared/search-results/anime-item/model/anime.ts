@@ -14,13 +14,20 @@ export interface Anime {
     episodes: string
     studios: Array<Studio>
     trailer: Trailer
+    demographics: Array<Demographics>
 }
 
 
-export interface Images {
+interface Demographics {
+    mal_id: number
+    name : string
+}
+
+interface Images {
     webp: Webp
 }
-export interface Webp {
+
+interface Webp {
     large_image_url: string
 }
 

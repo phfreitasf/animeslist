@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { Anime } from 'src/app/components/shared/search-results/anime-item/model/anime';
 
@@ -8,72 +8,100 @@ import { Anime } from 'src/app/components/shared/search-results/anime-item/model
   templateUrl: './animes-carousel.component.html',
   styleUrls: ['./animes-carousel.component.css']
 })
-export class AnimesCarouselComponent implements OnInit, AfterViewInit {
+export class AnimesCarouselComponent implements OnInit, AfterViewInit, OnChanges {
 
+  @Input() activeCarousel: Array<Anime> = []
+
+  //passar true no pai para definir como carousel de top temporada
+  @Input() topCarousel = false
+  @Input() animesTop!: Array<Anime>
+
+  // trocar dia da carousel
+  @Output() day = new EventEmitter<string>()
+  changeDay(day: string) {
+    this.day.emit(day)
+  }
+
+
+  //animes do navbar
   @Input() animeList: Array<Anime> = []
+  @Input() navDays = false
+  days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Unknown", "Other"]
+  //fim navbar
+
+
   @Input() labelCarousel: string = 'Carousel label'
   @Input() loop = false
   @Input() separador = false
   @Input() autoplay = false
+
   placeholder = true
-  temp : Array<string> = []
+  activeIndex: number = 0
 
- 
+  labelSplit: Array<string> = []
+
+
   constructor() { }
+  ngOnChanges() {
+    if (this.topCarousel === true) { this.activeCarousel = this.animesTop }
 
-  ngOnInit(): void { 
+    if (this.topCarousel === false) {
+      this.activeCarousel = this.animeList
+    }
+  }
+
+  ngOnInit(): void {
   }
 
   ngAfterViewInit(): void {
-    this.temp = this.labelCarousel.split(' ')
-    console.log(this.temp)
-    this.labelCarousel = `${this.temp[0]}<span class="text-color-skin">${this.temp[1]}</span>`
+    this.labelSplit = this.labelCarousel.split(' ')
+    this.labelCarousel = `${this.labelSplit[0]}<span class="text-color-skin">${this.labelSplit[1]}</span>`
     this.placeholder = false
     this.customOptions.loop = this.loop
     this.customOptions.autoplay = this.autoplay
   }
 
+  setActiveButtonIndex(i: any) {
+    this.activeIndex = i
+  }
 
   // Opções Owl Carousel
   customOptions: OwlOptions = {
-    loop: true,
-    autoplay:false,
-    autoplayTimeout:3000,
-    autoplayHoverPause:true,
+    loop: false,
+    autoplay: false,
+    autoplayTimeout: 3000,
+    autoplayHoverPause: true,
     margin: 10,
+    center:false,
     mouseDrag: true,
     touchDrag: true,
     dots: false,
     items: 5,
     navSpeed: 800,
     navText: ['<i class="fa fa-angle-left" aria-hidden="true"></i>',
-        '<i class="fa fa-angle-right" aria-hidden="true"></i>'],
+      '<i class="fa fa-angle-right" aria-hidden="true"></i>'],
     nav: true,
-    
+
     responsive: {
       0: {
         items: 2
       },
       480: {
-        items: 3, // from 480 to 677 
-        nav: false
+        items: 3,
       },
 
       678: {
         items: 4,
-        center: true
+        center: true,
       },
 
       960: {
         items: 5,
-        margin: 20,
-        center: false
       },
 
       1200: {
-        items: 10,
-        loop: false,
-        margin: 30,
+        items: 5,
+        margin: 20
       }
     }
   };
