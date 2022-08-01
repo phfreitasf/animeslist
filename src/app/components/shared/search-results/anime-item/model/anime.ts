@@ -29,6 +29,7 @@ interface Images {
 
 interface Webp {
     large_image_url: string
+    image_url: string
 }
 
 export interface Studio {

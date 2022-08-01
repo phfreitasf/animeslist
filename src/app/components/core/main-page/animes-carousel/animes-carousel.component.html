@@ -30,10 +30,10 @@
 
   <nav *ngIf="navDays" aria-label="Page navigation" class="d-flex justify-content-center responsive">
     <ul class="pagination pagination-sm d-sm-flex flex-wrap justify-content-center">
-      <li *ngFor="let day of days; let i = index" class="page-item pointer my-1"><a class="page-link nav-orange"
+      <li *ngFor="let day of days; let i = index" class="page-item pointer my-1"><button class="page-link nav-orange"
           (click)="setActiveButtonIndex(i);changeDay(day)" 
           [ngClass]="{'nav-button-active': i == activeIndex}"><i
-          [ngClass]="{'fa fa-calendar-check-o me-1' : i == activeIndex}" aria-hidden="true"></i>{{day}}</a>
+          [ngClass]="{'fa fa-calendar-check-o me-1' : i == activeIndex}" aria-hidden="true"></i>{{day}}</button>
       </li>
     </ul>
   </nav>
@@ -42,7 +42,7 @@
     <ng-container *ngFor="let anime of activeCarousel; let i = index">
       <ng-template carouselSlide>
         <a [routerLink]="['/anime', anime.mal_id]" class="">
-          <img class="filter" [src]="anime.images.webp.large_image_url" [alt]="anime.title" [title]="anime.title" />
+          <img class="filter" [src]="anime.images.webp.image_url" [alt]="anime.title" [title]="anime.title" />
           <span class="only-show-on-hover fs-6 w-100 text-center">{{anime.title_english || anime.title}}</span>
         </a>
       </ng-template>
