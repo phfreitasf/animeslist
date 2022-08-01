@@ -42,7 +42,7 @@
     <ng-container *ngFor="let anime of activeCarousel; let i = index">
       <ng-template carouselSlide>
         <a [routerLink]="['/anime', anime.mal_id]" class="">
-          <img class="filter" [src]="anime.images.webp.image_url" [alt]="anime.title" [title]="anime.title" />
+          <img class="filter" [src]="anime.images.webp.large_image_url" [alt]="anime.title" [title]="anime.title" />
           <span class="only-show-on-hover fs-6 w-100 text-center">{{anime.title_english || anime.title}}</span>
         </a>
       </ng-template>
