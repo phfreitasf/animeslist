@@ -16,7 +16,6 @@ export class AnimeListComponent implements OnInit, DoCheck {
   animeCarousel: Array<Anime> = []
   
   getSeasonAnimes(dayOfTheWeek:string) {
-    console.log(dayOfTheWeek)
     forkJoin({
       animeMonday: this.anime.getSeasonAnimes(dayOfTheWeek),
     })
