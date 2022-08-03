@@ -1,13 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class GoogleTranslateService {
 
-urlApi = 'https://translation.googleapis.com/language/translate/v2?key=AIzaSyDIbAXZwJbsAy_hK9J_IvcEL1481ua1f4Y&?'
+urlApi = environment.api_link
 
   constructor(private http: HttpClient) { }
 
