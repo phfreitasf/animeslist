@@ -6,6 +6,9 @@ import { AnimesCarouselComponent } from './animes-carousel/animes-carousel.compo
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { HttpLoaderFactory } from 'src/app/app.module';
+import { HttpClient } from '@angular/common/http';
 
 
 @NgModule({
@@ -18,7 +21,14 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
     AppRoutingModule,
     BrowserAnimationsModule,
     CarouselModule,
-    NgxSkeletonLoaderModule
+    NgxSkeletonLoaderModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   
 })

@@ -1,5 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-anime-filter',
@@ -9,7 +10,10 @@ import { Router } from '@angular/router';
 export class AnimeFilterComponent implements OnInit {
   
   nfsw : boolean = false
-  constructor(private router: Router) { }
+  constructor(private router: Router ,private translateService : TranslateService) {
+    this.translateService.setDefaultLang('en')
+    this.translateService.use(localStorage.getItem('lang') || 'en')
+   }
 
   ngOnInit(): void {
   }

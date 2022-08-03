@@ -1,18 +1,28 @@
 <!-- Inicio placeholder -->
 <section *ngIf="placeholder">
-  <div class="row d-flex align-items-center justify-content-center flex-wrap responsive">
+  <div class="row d-flex align-items-center justify-content-center flex-wrap responsive fix-width">
     <p class="fs-1 col-md-auto pe-0 me-3 text-head">
       Loading...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     </p>
     <span class="col-md-8 separador"></span>
   </div>
 
-  <ngx-skeleton-loader class="m-auto d-flex justify-content-center " animation="progress" count="5" [theme]="{ 
+  <ngx-skeleton-loader class="d-flex justify-content-center flex-wrap" animation="pulse" count="1" [theme]="{ 
+    'height.px': 30,
+    'width.px': 300,
+    'background-color': 'gray',
+    'margin-right.px' : 10,
+    'border-radius.px': 10,
+    'margin-top.px':0
+  }"></ngx-skeleton-loader>
+
+  <ngx-skeleton-loader class="d-flex justify-content-center flex-wrap" animation="pulse" count="5" [theme]="{ 
       'height.px': 288,
-      'width.px': 207,
+      'width.px': 196,
       'background-color': 'gray',
       'margin-right.px' : 10,
-      'border-radius.px': 10
+      'border-radius.px': 10,
+      'margin-top.px':10
     }"></ngx-skeleton-loader>
 </section>
 <!-- Fim placeholder -->
@@ -23,7 +33,8 @@
 <div *ngIf="!placeholder" class="container" [ngClass]="{'fix-width' : this.activeCarousel.length <= 5}">
   <div class="row d-flex align-items-center flex-wrap responsive">
     <p class="fs-1 col-md-auto pe-0 me-3 text-center text-head">
-      <span [innerHTML]="labelCarousel"></span>
+    <span>{{ this.labelSplit[0]| translate}}<span class="text-color-skin">{{this.labelSplit[1] | translate}}</span></span>
+
     </p>
     <span class="col-md separador"></span>
   </div>
@@ -33,7 +44,7 @@
       <li *ngFor="let day of days; let i = index" class="page-item pointer my-1"><button class="page-link nav-orange"
           (click)="setActiveButtonIndex(i);changeDay(day)" 
           [ngClass]="{'nav-button-active': i == activeIndex}"><i
-          [ngClass]="{'fa fa-calendar-check-o me-1' : i == activeIndex}" aria-hidden="true"></i>{{day}}</button>
+          [ngClass]="{'fa fa-calendar-check-o me-1' : i == activeIndex}" aria-hidden="true"></i>{{day | translate}}</button>
       </li>
     </ul>
   </nav>
@@ -41,7 +52,7 @@
   <owl-carousel-o [options]="customOptions" class="col-md-auto">
     <ng-container *ngFor="let anime of activeCarousel; let i = index">
       <ng-template carouselSlide>
-        <a [routerLink]="['/anime', anime.mal_id]" class="">
+        <a [routerLink]="['/anime', anime.mal_id]">
           <img class="filter" [src]="anime.images.webp.large_image_url" [alt]="anime.title" [title]="anime.title" />
           <span class="only-show-on-hover fs-6 w-100 text-center">{{anime.title_english || anime.title}}</span>
         </a>

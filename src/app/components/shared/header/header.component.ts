@@ -7,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  defaultLang = 'en'
   constructor() { }
 
   ngOnInit(): void {
+    if (localStorage.getItem('lang') == null) localStorage.setItem('lang', this.defaultLang)
   }
 
   changeLang(lang:string) {

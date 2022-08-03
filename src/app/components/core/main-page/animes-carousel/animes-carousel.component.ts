@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { Anime } from 'src/app/components/shared/search-results/anime-item/model/anime';
 
@@ -41,7 +42,10 @@ export class AnimesCarouselComponent implements OnInit, AfterViewInit, OnChanges
   labelSplit: Array<string> = []
 
 
-  constructor() { }
+  constructor(private translateService : TranslateService) {
+    this.translateService.setDefaultLang('en')
+    this.translateService.use(localStorage.getItem('lang') || 'en')
+   }
   ngOnChanges() {
     if (this.topCarousel === true) { this.activeCarousel = this.animesTop }
 

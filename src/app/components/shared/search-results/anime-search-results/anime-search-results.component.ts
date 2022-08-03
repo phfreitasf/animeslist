@@ -30,28 +30,28 @@ export class AnimeSearchResultsComponent implements OnInit {
 
 
   async filterAnimes(animesSearch: string, page: any) {
-    this.result = await lastValueFrom(this.anime.filterAnimes(animesSearch, page)).catch((err) => {
-      console.log(err);
-    });
-    this.animes = this.result.data
-    // 
+    this.result = await lastValueFrom(this.anime.filterAnimes(animesSearch, page)).then(result => this.animes = result.data)
+      .catch((err) => {
+        console.log(err);
+      })
     try {
       await this.createPagination(animesSearch, page)
     }
-    catch{
-      setTimeout(() => {
-       this.createPagination(animesSearch, page)
-      }, 1000);
+    catch (exception){
+      console.log(exception)
     }
-    this.placeholder = false
+    
   }
 
   async createPagination(animesSearch: string, page: any) {
-    this.result = await lastValueFrom(this.anime.filterAnimes(animesSearch, page)).catch((err) => {
-      console.log(err);
-    });
-    this.meta = this.result.meta.links
-    this.meta = this.meta.filter((value: any) => this.filterPagination(value))
+    this.result = await lastValueFrom(this.anime.filterAnimes(animesSearch, page)).then(result => {
+      this.meta = result.meta.links})
+      .finally(() => {
+        this.meta = this.meta.filter((value: any) => this.filterPagination(value))
+        this.placeholder = false})
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   setActiveButtonIndex(i: any) {

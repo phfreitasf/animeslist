@@ -6,6 +6,9 @@ import { AppRoutingModule } from '../../../app-routing.module';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { AnimeFilterComponent } from './anime-filter/anime-filter.component';
 import { AnimeInfoComponent } from './anime-info/anime-info.component';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { HttpLoaderFactory } from 'src/app/app.module';
+import { HttpClient } from '@angular/common/http';
 
 
 @NgModule({
@@ -18,7 +21,14 @@ import { AnimeInfoComponent } from './anime-info/anime-info.component';
   imports: [
     CommonModule,
     AppRoutingModule,
-    NgxSkeletonLoaderModule
+    NgxSkeletonLoaderModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })  
   ],
   exports: [
     AnimeFilterComponent

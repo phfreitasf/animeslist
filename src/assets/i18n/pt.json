@@ -1,0 +1,30 @@
+{
+    "Airing": "Em",
+    "Animes": "Exibição",
+    "Top": "Top",
+    "Season": "Temporada",
+    "Monday" : "Segunda",
+    "Tuesday" : "Terça",
+    "Wednesday" : "Quarta",
+    "Thursday" : "Quinta",
+    "Friday" : "Sexta",
+    "Unknown" : "Desconhecido",
+    "Other" : "Outro",
+
+
+    "Rating" : "Classificação",
+    "Status" : "Situação",
+    "Episodes" : "Episódios",
+    "Year" : "Ano",
+    "Studio" : "Estúdio",
+    "Synopsis": "Sinopse",
+    "Currently Airing": "Em exibição",
+    "Finished Airing": "Exibição concluída",
+    "Not yet aired" : "Não lançado",
+    "Watch Trailer" : "Assistir Trailer",
+
+
+    "Show +18 series" : "Exibir séries +18",
+    "Search anime..." : "Procure um anime..."
+    
+}

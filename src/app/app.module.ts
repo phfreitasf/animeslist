@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClient, HttpClientModule } from '@angular/common/http'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component'
@@ -11,11 +11,14 @@ import { SearchModule } from './components/shared/search-results/search-module';
 import { FooterComponent } from './components/shared/footer/footer.component';
 
 import { ApiQueryService } from './services/api-query.service';
+import { GoogleTranslateService } from './services/google-translate.service';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 
-
-
-
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http)
+}
 
 @NgModule({
   declarations: [
@@ -28,9 +31,10 @@ import { ApiQueryService } from './services/api-query.service';
     AppRoutingModule,
     HttpClientModule,
     MainPageModule,
-    SearchModule
+    SearchModule,
+    
   ],
-  providers: [ApiQueryService],
+  providers: [ApiQueryService, GoogleTranslateService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

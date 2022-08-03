@@ -1,7 +1,7 @@
 <div class="col-md-8 d-flex flex-column m-auto container align-items-center">
 
   <img src="../../../../../assets/images/search/2b.webp" class="responsive"  alt="Search Banner Logo">
-  <input #nameInput type="text" name="text" class="input col-12" placeholder="Search anime..."
+  <input #nameInput type="text" name="text" class="input col-12" placeholder="{{'Search anime...' | translate }}"
     (keyup.enter)="searchAnimes(nameInput.value, this.nfsw)">
 
   <div class="row">
@@ -9,6 +9,6 @@
       <input type="checkbox" (click)="setNfsw($event)">
       <span class="slider"></span>
     </label>
-    <p class="col-auto mt-2 px-0">Show +18 series</p>
+    <p class="col-auto mt-2 px-0">{{'Show +18 series' | translate }}</p>
   </div>
 </div>

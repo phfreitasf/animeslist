@@ -36,7 +36,7 @@
   <!-- cabeçalho -->
   <div class="row d-flex align-items-center flex-wrap responsive">
     <p *ngIf="!this.placeholder" class="fs-1 col-md-auto pe-0 me-3 text-center text-white">
-      Animes<span class="text-color-skin">Results</span> 
+      Animes<span class="text-color-skin">Results</span>
     </p>
     <span class="col-md separador"></span>
   </div>
@@ -59,15 +59,15 @@
   </section>
   <!-- fim da iteraçao-->
 
-    <!-- paginacao extra-->
-    <nav aria-label="Page navigation" class="d-flex justify-content-center">
-      <ul class="pagination">
-        <li *ngFor="let link of meta; let i = index" class="page-item pointer"><a class="page-link nav-orange"
-            (click)="filterAnimes(animesSearch,link.label); setActiveButtonIndex(i)"
-            [ngClass]="{'nav-button-active': i == activeIndex}">{{link.label}}</a>
-        </li>
-      </ul>
-    </nav>
-    <!-- fim paginacao extra-->
+  <!-- paginacao extra-->
+  <nav aria-label="Page navigation" class="d-flex justify-content-center">
+    <ul class="pagination">
+      <li *ngFor="let link of meta; let i = index" class="page-item pointer"><a class="page-link nav-orange"
+          (click)="filterAnimes(animesSearch,link.label); setActiveButtonIndex(i)"
+          [ngClass]="{'nav-button-active': i == activeIndex}">{{link.label}}</a>
+      </li>
+    </ul>
+  </nav>
+  <!-- fim paginacao extra-->
 </section>
 <!-- Fim dos resultados -->
