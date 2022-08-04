@@ -48,35 +48,35 @@
 
   <!-- right panel -->
   <div class="d-flex flex-column align-items-stretch text-sm-start">
-    <section class="d-flex flex-wrap row">
+    <section class="d-flex justify-content-between row">
       <button class="switch-title" (click)="changeTitle(currentTitle)">
-        <img src="../../../../../assets/images/info/switch-name.webp" height="24px" alt="Change Title" style="filter:invert()" />
+        <img src="../../../../../assets/images/info/switch-name.webp" height="24px" alt="Change Title"
+          style="filter:invert()" />
       </button>
       <span class="fs-1 col-12 text-center text-color-skin mb-2">{{ currentTitle || 'N/A'}}</span>
-      
-      <span class="text-muted fs-6 col-md-3">{{'Status' | translate}}:<p [ngClass]="{
+
+      <span class="text-muted fs-6 col-3">{{'Status' | translate}}:<p [ngClass]="{
           'text-primary': singleAnime.status == 'Currently Airing',
           'text-success': singleAnime.status == 'Finished Airing',
           'text-danger': singleAnime.status == 'Not yet aired' }">
           {{(singleAnime.status || 'N/A') | translate}}</p>
       </span>
-      <span class="text-muted fs-6 col-md-3">{{'Episodes' | translate}}: <p>{{singleAnime.episodes || 'N/A'}}</p></span>
-      <span class="text-muted fs-6 col-md-3">{{'Year' | translate}}: <p>{{singleAnime.year || 'N/A'}}</p></span>
-      <span class="text-muted fs-6 col-md-3">{{'Studio' | translate}}: <p>{{singleAnime.studios[0].name || 'N/A'}}</p>
-        </span>
+      <span class="text-muted fs-6 col-3">{{'Episodes' | translate}}: <p>{{singleAnime.episodes || 'N/A'}}</p></span>
+      <span class="text-muted fs-6 col-3">{{'Year' | translate}}: <p>{{singleAnime.year || 'N/A'}}</p></span>
+      <span class="text-muted fs-6 col-3">{{'Studio' | translate}}: <p>{{singleAnime.studios[0].name || 'N/A'}}</p></span>
       <span class="text-muted fs-6 col-md-auto">{{'Genres' | translate}}: <p *ngFor="let genres of singleAnime.genres"
           class="mb-0">{{(genres.name || 'N/A') | translate}}</p></span>
 
-      <section class=" my-4 d-flex">
-        <a (click)="goToCrunchyRoll(singleAnime.title)" class="btn text-decoration-none text-white me-2"><img
+      <section class=" my-4 d-flex flex-wrap">
+        <a (click)="goToCrunchyRoll(singleAnime.title)" class="btn text-decoration-none text-white me-2 my-2"><img
             class="me-1" src="../../../../assets/images/crunchyrol_ico.png" />CrunchyRoll</a>
 
-        <a (click)="goToFunimation(singleAnime.title)" class="btn text-decoration-none text-white me-2"><img
+        <a (click)="goToFunimation(singleAnime.title)" class="btn text-decoration-none text-white me-2 my-2"><img
             class="me-1" src="../../../../assets/images/funimation.ico" width="16px" height="16px" />Funimation</a>
 
 
         <a *ngIf="singleAnime.trailer.url != null || singleAnime.trailer.url != ''" [href]="singleAnime.trailer.url"
-          class="btn text-decoration-none text-white w-auto"><i class="fa fa-video-camera me-1 mb-1"
+          class="btn text-decoration-none text-white w-auto my-2"><i class="fa fa-video-camera me-1 mb-1"
             aria-hidden="true"></i>{{'Watch Trailer' | translate}}</a>
       </section>
 
