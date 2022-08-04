@@ -15,6 +15,8 @@ export interface Anime {
     studios: Array<Studio>
     trailer: Trailer
     demographics: Array<Demographics>
+    genres : Array<Genres>
+    streaming: Array<Streaming>
 }
 
 
@@ -32,10 +34,18 @@ interface Webp {
     image_url: string
 }
 
-export interface Studio {
+interface Studio {
     name: string
 }
 
-export interface Trailer {
+interface Trailer {
+    url: string
+}
+
+interface Genres {
+    name: string
+}
+interface Streaming {
+    name: string
     url: string
 }

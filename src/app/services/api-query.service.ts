@@ -19,7 +19,7 @@ export class ApiQueryService {
   }
 
   getAnimeById(id:string) : Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}anime/${id}`)
+    return this.http.get<any>(`${this.apiUrl}anime/${id}/full`)
   }
 
   getSeasonAnimes(day:string) : Observable<any> {

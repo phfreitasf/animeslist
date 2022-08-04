@@ -23,9 +23,9 @@ export class AnimeSearchResultsComponent implements OnInit {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
 
-  ngOnInit(): void {
+  async ngOnInit() {
     this.animesSearch = '' + this.route.snapshot.paramMap.get('name');
-    this.filterAnimes(this.animesSearch, '1')
+    await this.filterAnimes(this.animesSearch, '1')
   }
 
 

@@ -22,7 +22,7 @@ import { HttpClient } from '@angular/common/http';
     CommonModule,
     AppRoutingModule,
     NgxSkeletonLoaderModule,
-    TranslateModule.forRoot({
+    TranslateModule.forChild({
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,

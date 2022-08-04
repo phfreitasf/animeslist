@@ -72,19 +72,24 @@ export class AnimesCarouselComponent implements OnInit, AfterViewInit, OnChanges
   // Opções Owl Carousel
   customOptions: OwlOptions = {
     loop: false,
+    lazyLoad: true,
+    
     autoplay: false,
     autoplayTimeout: 3000,
     autoplayHoverPause: true,
     margin: 10,
     center:false,
     mouseDrag: true,
+    freeDrag: true,
     touchDrag: true,
+    pullDrag:false,
     dots: false,
-    items: 5,
-    navSpeed: 800,
+    items: 2,
+    nav: true,
+    rewind:true,
+    navSpeed: 200,
     navText: ['<i class="fa fa-angle-left" aria-hidden="true"></i>',
       '<i class="fa fa-angle-right" aria-hidden="true"></i>'],
-    nav: true,
 
     responsive: {
       0: {
@@ -100,11 +105,11 @@ export class AnimesCarouselComponent implements OnInit, AfterViewInit, OnChanges
       },
 
       960: {
-        items: 5,
+        items: 6,
       },
 
       1200: {
-        items: 5,
+        items: 6,
         margin: 20
       }
     }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { lastValueFrom } from 'rxjs';
+import { lastValueFrom, single } from 'rxjs';
 import { Anime } from '../anime-item/model/anime';
 
 
@@ -20,6 +20,8 @@ export class AnimeInfoComponent implements OnInit {
 
   id!: string
   singleAnime!: Anime
+  currentTitle: string = ''
+  arrayTitles : Array<string> = []
   placeholder = true
   result: any
   synopsisPt = {
@@ -50,12 +52,23 @@ export class AnimeInfoComponent implements OnInit {
       this.singleAnime = result.data
       this.synopsisPt.q = result.data.synopsis
       this.ratingPt.q = result.data.rating
+      this.currentTitle = result.data.title
 
+      this.arrayTitles.push(result.data.title,result.data.title_english,result.data.title_japanese)
     })
+  }
+
+  changeTitle(title:string) {
+    do{
+      this.currentTitle = this.arrayTitles[Math.floor(Math.random() * this.arrayTitles.length)]
+    }while(this.currentTitle == title)
   }
 
   goToCrunchyRoll(animeName: string) {
     window.open(`https://crunchyroll.com/pt-br/search?q=${animeName}`, '_blank')
+  }
+  goToFunimation(animeName: string) {
+    window.open(`https://www.funimation.com/pt-br/search/?q=${animeName}`, '_blank')
   }
 
   async translateSynopsis(object: any) {
@@ -73,7 +86,8 @@ export class AnimeInfoComponent implements OnInit {
     try {
       await lastValueFrom(this.translate.translateText(object)).then(result => {
         this.singleAnime.rating = result.data.translations[0].translatedText
-      })}
+      })
+    }
     catch (exception) { console.log(exception) }
   }
 }

@@ -17,11 +17,20 @@
     "Episodes" : "Episódios",
     "Year" : "Ano",
     "Studio" : "Estúdio",
+    "Genres" : "Gêneros",
     "Synopsis": "Sinopse",
     "Currently Airing": "Em exibição",
     "Finished Airing": "Exibição concluída",
     "Not yet aired" : "Não lançado",
     "Watch Trailer" : "Assistir Trailer",
+    "Action" : "Ação",
+    "Fantasy" : "Fantasia",
+    "Supernatural" : "Sobrenatural",
+    "Mystery" : "Mistério",
+    "Adventure" : "Aventura",
+    "Sports" : "Esportes",
+    "Comedy" : "Comédia",
+
 
 
     "Show +18 series" : "Exibir séries +18",
