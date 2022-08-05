@@ -15,6 +15,7 @@
   -webkit-text-fill-color: white !important;
   text-decoration: none;
   transition: all .2s ease;
+  margin-top: -40px;
 }
 
 .btn:hover,
@@ -23,4 +24,10 @@
   -webkit-background-clip: none !important;
   -webkit-text-fill-color: black !important;
   /* box-shadow: #222 1px 0 10px; */
+}
+
+@media (max-width:768px) {
+  .switch-title {
+    margin-top: 0px;
+  }
 }

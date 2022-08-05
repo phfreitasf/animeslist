@@ -21,7 +21,7 @@ export class AnimeInfoComponent implements OnInit {
   id!: string
   singleAnime!: Anime
   currentTitle: string = ''
-  arrayTitles : Array<string> = []
+  arrayTitles: Array<string> = []
   placeholder = true
   result: any
   synopsisPt = {
@@ -54,14 +54,15 @@ export class AnimeInfoComponent implements OnInit {
       this.ratingPt.q = result.data.rating
       this.currentTitle = result.data.title
 
-      this.arrayTitles.push(result.data.title,result.data.title_english,result.data.title_japanese)
+      this.arrayTitles.push(result.data.title, result.data.title_english, result.data.title_japanese)
     })
   }
 
-  changeTitle(title:string) {
-    do{
-      this.currentTitle = this.arrayTitles[Math.floor(Math.random() * this.arrayTitles.length)]
-    }while(this.currentTitle == title)
+  changeTitle(title: string) {
+
+    if (this.arrayTitles[this.arrayTitles.indexOf(title) + 1] != null) { this.currentTitle = this.arrayTitles[this.arrayTitles.indexOf(title) + 1]}
+    else this.currentTitle = this.arrayTitles[0]
+
   }
 
   goToCrunchyRoll(animeName: string) {
