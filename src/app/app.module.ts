@@ -14,6 +14,7 @@ import { ApiQueryService } from './services/api-query.service';
 import { GoogleTranslateService } from './services/google-translate.service';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { Page404Component } from './components/core/404/page404/page404.component';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -25,6 +26,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppComponent,
     HeaderComponent,
     FooterComponent,
+    Page404Component,
   ],
   imports: [
     BrowserModule,
