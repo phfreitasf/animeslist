@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { lastValueFrom, single } from 'rxjs';
 import { Anime } from '../anime-item/model/anime';
 
@@ -32,7 +32,7 @@ export class AnimeInfoComponent implements OnInit {
     q: '',
     target: 'pt'
   }
-  constructor(private anime: ApiQueryService, private translate: GoogleTranslateService, private route: ActivatedRoute, private translateService: TranslateService) {
+  constructor(private anime: ApiQueryService, private translate: GoogleTranslateService, private route: ActivatedRoute, private translateService: TranslateService, private redirectRoute:Router) {
     this.translateService.setDefaultLang('en')
     this.translateService.use(localStorage.getItem('lang') || 'en')
   }
@@ -55,7 +55,7 @@ export class AnimeInfoComponent implements OnInit {
       this.currentTitle = result.data.title
 
       this.arrayTitles.push(result.data.title, result.data.title_english, result.data.title_japanese)
-    })
+    }).catch(() => this.redirectRoute.navigate(['404']) )
   }
 
   changeTitle(title: string) {

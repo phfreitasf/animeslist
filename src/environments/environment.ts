@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  api_link : 'https://translation.googleapis.com/language/translate/v2?key=AIzaSyDIbAXZwJbsAy_hK9J_IvcEL1481ua1f4Y&?'
+  api_link : 'https://translation.googleapis.com/language/translate/v2?key=AIzaSyDIbAXZwJbsAy_hK9J_IvcEL1481ua1f4Y&?',
+  apiLogin : ''
 };
 
 /*
