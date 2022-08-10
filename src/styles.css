@@ -22,3 +22,7 @@ body {
 .text-color-skin {
   color: var(--laranjinha)
 }
+
+.modal {
+  background-color: rgba(33,37,41,0.9)!important;
+  }

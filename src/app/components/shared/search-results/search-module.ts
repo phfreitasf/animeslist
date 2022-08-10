@@ -9,6 +9,8 @@ import { AnimeInfoComponent } from './anime-info/anime-info.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpLoaderFactory } from 'src/app/app.module';
 import { HttpClient } from '@angular/common/http';
+import { ModalImagesComponent } from './modal-images/modal-images.component';
+import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
 
 
 @NgModule({
@@ -16,12 +18,14 @@ import { HttpClient } from '@angular/common/http';
     AnimeItemComponent,
     AnimeSearchResultsComponent,
     AnimeFilterComponent,
-    AnimeInfoComponent
+    AnimeInfoComponent,
+    ModalImagesComponent
   ],
   imports: [
     CommonModule,
     AppRoutingModule,
     NgxSkeletonLoaderModule,
+    MdbModalModule,
     TranslateModule.forChild({
       loader: {
         provide: TranslateLoader,

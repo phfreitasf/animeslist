@@ -9,15 +9,12 @@ import { HeaderComponent } from './components/shared/header/header.component';
 import { MainPageModule } from './components/core/main-page/main-page.module';
 import { SearchModule } from './components/shared/search-results/search-module';
 import { FooterComponent } from './components/shared/footer/footer.component';
-import { RegisterComponent } from './components/core/login-page/register/register.component';
 
 import { ApiQueryService } from './services/api-query.service';
 import { GoogleTranslateService } from './services/google-translate.service';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { Page404Component } from './components/core/404/page404/page404.component';
-import { LoginComponent } from './components/core/login-page/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { LoginUserService } from './services/login/login-user.service';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -30,8 +27,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     HeaderComponent,
     FooterComponent,
     Page404Component,
-    LoginComponent,
-    RegisterComponent
     
   ],
   imports: [
@@ -42,7 +37,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     SearchModule,
     ReactiveFormsModule
   ],
-  providers: [ApiQueryService, GoogleTranslateService, LoginUserService],
+  providers: [ApiQueryService, GoogleTranslateService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

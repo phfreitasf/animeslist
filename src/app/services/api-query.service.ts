@@ -10,24 +10,31 @@ export class ApiQueryService {
   apiUrl = 'https://api.jikan.moe/v4/'
   constructor(private http: HttpClient) { }
 
-  getAnimes(page:any) : Observable<any>{
-    return this.http.get<any>(`${this.apiUrl}anime?page=${page}`)
-  }
+  // Consulta todos os animes, nao esta em uso
+  // getAnimes(page:any) : Observable<any>{
+  //   return this.http.get<any>(`${this.apiUrl}anime?page=${page}`)
+  // }
 
-  filterAnimes(animeName:string, page:string) : Observable<any> {
+  // Resultados da barra de pesquisa por nome
+  filterAnimes(animeName: string, page: string): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}anime?q=${animeName}&page=${page}`)
   }
 
-  getAnimeById(id:string) : Observable<any> {
+  // Consulta para preencher as informacoes da pagina de info
+  getAnimeById(id: string): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}anime/${id}/full`)
   }
 
-  getSeasonAnimes(day:string) : Observable<any> {
+  //Consulta para o carousel da pag inicial
+  getSeasonAnimes(day: string): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}schedules?filter=${day}&kids=true&sfw=true`)
   }
-
-  getTopAnimes() : Observable<any> {
+  //Consulta para o carousel da pag inicial
+  getTopAnimes(): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}top/anime?filter=airing`)
   }
 
+  getAllAnimeImgs(id: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}anime/${id}/pictures`)
+  }
 }

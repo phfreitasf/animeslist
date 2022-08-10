@@ -39,8 +39,8 @@
 </section>
 <!-- left panel-->
 <div *ngIf="!placeholder" class="d-md-flex align-items-start justify-content-center container">
-  <div class="flex-column col-md-4 justify-content-center text-center">
-    <img [src]="singleAnime.images.webp.large_image_url" class="rounded mb-1" width="80%" [alt]="singleAnime.title" />
+  <div class="flex-column col-md-4 justify-content-center text-center zoom">
+    <img [src]="singleAnime.images.webp.large_image_url" class="rounded mb-1 pointer" width="80%" [alt]="singleAnime.title" (click)="openModal()"/>
     <p class="my-0">{{'Rating' | translate}}:</p>
     <p class="my-0">{{singleAnime.rating || 'Unknown'}}</p>
   </div>

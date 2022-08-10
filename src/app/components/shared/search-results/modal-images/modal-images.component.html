@@ -1,0 +1,18 @@
+
+    <div class="modal-header bg-dark">
+        <span class=" text-white">Images</span>
+        <button
+        type="button"
+        class="btn-close btn-close-white"
+        aria-label="Close"
+        (click)="modalRef.close()"
+        ></button>
+    </div>
+    <div class="modal-body d-flex flex-wrap justify-content-around bg-dark">
+        <img *ngFor="let img of anime" [src]="img.webp.large_image_url" class="img-fluid mb-2 rounded"/>
+    </div>
+    <div class="modal-footer bg-dark">
+        <button type="button" class="btn btn-outline-warning nav-orange" (click)="modalRef.close()">
+            Close
+        </button>
+    </div>

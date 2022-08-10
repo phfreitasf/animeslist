@@ -1,10 +1,8 @@
 .btn {
   border: 1px solid var(--laranjinha);
   border-image-slice: 1;
-  /* background: var(--gradient) !important; */
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: white !important;
-  /* border-color: var(--gradient) !important; */
   text-decoration: none;
   transition: all .2s ease;
 }
@@ -23,7 +21,14 @@
   box-shadow: inset 10px 10px 100px var(--laranjinha);
   -webkit-background-clip: none !important;
   -webkit-text-fill-color: black !important;
-  /* box-shadow: #222 1px 0 10px; */
+}
+
+.zoom img {
+  transition: transform .2s ease-in-out;
+}
+
+.zoom:hover img {
+  transform: scale(1.02);
 }
 
 @media (max-width:768px) {

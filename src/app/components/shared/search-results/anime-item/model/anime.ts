@@ -25,7 +25,7 @@ interface Demographics {
     name : string
 }
 
-interface Images {
+export interface Images {
     webp: Webp
 }
 
