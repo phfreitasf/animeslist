@@ -139,6 +139,5 @@ export class AnimeInfoComponent implements OnInit {
       modalClass: 'modal-xl bg-dark',
       
     },)
-    console.log(data)
   }
 }
